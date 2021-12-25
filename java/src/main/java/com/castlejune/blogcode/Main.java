@@ -1,14 +1,15 @@
 package com.castlejune.blogcode;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
-    private static volatile boolean stopRequested;
+    private static final AtomicBoolean stopRequested = new AtomicBoolean();
 
     public static void main(String[] args) throws InterruptedException {
         Thread backgroundThread = new Thread(() -> {
             int i = 0;
-            while (!stopRequested) {
+            while (!stopRequested.get()) {
                 i++;
             }
 
@@ -16,6 +17,6 @@ public class Main {
         backgroundThread.start();
 
         TimeUnit.SECONDS.sleep(1);
-        stopRequested = true;
+        stopRequested.set(true);
     }
 }
