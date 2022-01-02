@@ -16,7 +16,7 @@ class FruitInventoryTest {
     void createFruitInventory() {
         fruitList.add(Apple.builder()
                 .color("red")
-                .weight(150)
+                .weight(160)
                 .build());
         fruitList.add(Apple.builder()
                 .color("green")
@@ -24,7 +24,7 @@ class FruitInventoryTest {
                 .build());
         fruitList.add(Apple.builder()
                 .color("green")
-                .weight(150)
+                .weight(160)
                 .build());
     }
 
@@ -55,17 +55,19 @@ class FruitInventoryTest {
     @DisplayName("filterApples 테스트")
     void test3() {
         // given
-        String color = "red";
-        int weight = 120;
-        boolean useColor = true;
-        boolean unusedColor = false;
+        Apple compare = Apple.builder()
+                .weight(150)
+                .build();
 
         // when
-        List<Apple> useColorAppleList = FruitInventory.filterApples(fruitList, color, weight, useColor);
-        List<Apple> unusedColorAppleList = FruitInventory.filterApples(fruitList, color, weight, unusedColor);
+        List<Apple> weightApples = FruitInventory.filterApples(fruitList, new ApplePredicate() {
+            @Override
+            public boolean test(Apple apple, Apple compare) {
+                return apple.getWeight() > compare.getWeight();
+            }
+        }, compare);
 
         // then
-        Assertions.assertThat(useColorAppleList.size()).isEqualTo(1);
-        Assertions.assertThat(unusedColorAppleList.size()).isEqualTo(2);
+        Assertions.assertThat(weightApples.size()).isEqualTo(2);
     }
 }

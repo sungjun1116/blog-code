@@ -29,18 +29,17 @@ public class FruitInventory {
         return result;
     }
 
-    public static List<Apple> filterApples(List<Apple> inventory, String color, int weight, boolean useColor) {
+    public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate applePredicate, Apple compare) {
         List<Apple> result = new ArrayList<>();
 
         for (Apple apple : inventory) {
 
-            if ((useColor && apple.getColor().equals(color))
-                    || (!useColor && apple.getWeight() > weight)) {
-
+            if (applePredicate.test(apple, compare)) {
                 result.add(apple);
             }
         }
 
         return result;
     }
+
 }
