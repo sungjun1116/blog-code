@@ -2,6 +2,7 @@ package com.castlejune.blogcode.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiPredicate;
 
 public class FruitInventory {
 
@@ -29,7 +30,7 @@ public class FruitInventory {
         return result;
     }
 
-    public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate applePredicate, Apple compare) {
+    public static List<Apple> filterApples(List<Apple> inventory, BiPredicate<Apple, Apple> applePredicate, Apple compare) {
         List<Apple> result = new ArrayList<>();
 
         for (Apple apple : inventory) {

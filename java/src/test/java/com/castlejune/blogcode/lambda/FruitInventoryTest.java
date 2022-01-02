@@ -60,12 +60,7 @@ class FruitInventoryTest {
                 .build();
 
         // when
-        List<Apple> weightApples = FruitInventory.filterApples(fruitList, new ApplePredicate() {
-            @Override
-            public boolean test(Apple apple, Apple compare) {
-                return apple.getWeight() > compare.getWeight();
-            }
-        }, compare);
+        List<Apple> weightApples = FruitInventory.filterApples(fruitList, (apple, compare1) -> apple.getWeight() > compare1.getWeight(), compare);
 
         // then
         Assertions.assertThat(weightApples.size()).isEqualTo(2);
