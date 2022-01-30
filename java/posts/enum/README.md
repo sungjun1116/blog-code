@@ -23,7 +23,9 @@ if (Color.BLACK == Chiral.LEFT);      // DOESN'T COMPILE!!! Incompatible types!
 ```
 == 비교를 사용하면 프로그래머가 실수로 잘못된 타입 비교를 작성해도 컴파일 타임에 검사되지만 equals 메서드를 사용하면 그대로 컴파일되버립니다.
  
-컴파일 타임에 타입 호환성 검사를 지원하는 것은 개인적으로 아주 큰 장점이라고 생각합니다. 실제로 회사에서 equals 메서드를 사용해 잘못 작성된 코드로 인해 버그가 발생한 적 있습니다. 최대한 비슷하게 예제를 만들어 보았습니다.
+컴파일 타임에 타입 호환성 검사를 지원하는 것은 개인적으로 아주 큰 장점이라고 생각합니다. 실제로 회사에서 equals 메서드를 사용해 잘못 작성된 코드로 인해 버그가 발생한 적 있습니다. 
+![1.png](./images/1.png)
+최대한 비슷하게 예제를 만들어 보았습니다.
 ```java
 public boolean compare(Color color) {
     return Color.Black.name().equals(color);
