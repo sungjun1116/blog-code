@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-class FruitInventoryTest {
+class FruitInventoryCollectionTest {
 
     List<Apple> fruitList = new ArrayList<>();
 

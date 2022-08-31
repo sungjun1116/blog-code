@@ -5,7 +5,7 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class OperationTest {
+class OperationCollectionTest {
 
     @Test
     @DisplayName("람다 테스트")
