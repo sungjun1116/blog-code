@@ -18,7 +18,7 @@
 ## 예제
 ```java
 public class StopThread {  
-    private static boolean Main;  
+    private static boolean stopRequested;  
 
     public static void main(String[] args) throws InterruptedException {  
         Thread backgroundThread = new Thread(() -> {  
